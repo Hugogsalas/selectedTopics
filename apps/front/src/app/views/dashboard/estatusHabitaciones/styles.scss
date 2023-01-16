@@ -1,0 +1,63 @@
+.estatus-container {
+  display: flex;
+  flex-direction: column;
+
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 20px;
+
+    .title {
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .button-add {
+      border-radius: 10px;
+      max-width: 100px;
+      background-color: #4caf50;
+      border: none;
+      color: white;
+      padding: 10px 20px;
+      cursor: pointer;
+    }
+  }
+
+  .table {
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+
+    .row {
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid #ccc;
+
+      .column {
+        flex: 1;
+        padding: 10px;
+      }
+
+      .button-delete {
+        margin: 0 10px;
+        border-radius: 10px;
+        background-color: #f44336;
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        cursor: pointer;
+      }
+
+      .button-update {
+        margin: 0 10px;
+        border-radius: 10px;
+        background-color: #2196f3;
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        cursor: pointer;
+      }
+    }
+  }
+}

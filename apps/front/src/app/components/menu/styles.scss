@@ -1,0 +1,25 @@
+.menu-container {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  background-color: #f1f1f1;
+
+  .links-container {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      a {
+        display: block;
+        padding: 16px;
+        text-decoration: none;
+        color: #000;
+
+        &:hover {
+          background-color: #ddd;
+        }
+      }
+    }
+  }
+}
