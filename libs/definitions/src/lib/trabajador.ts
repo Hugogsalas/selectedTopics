@@ -24,6 +24,7 @@ export interface DeleteTrabajadorParams {
 }
 
 export interface UpdateTrabajadorParams {
+  id_trabajador: number;
   salario?: number;
   id_usuario?: number;
   nombre_usuario?: string;

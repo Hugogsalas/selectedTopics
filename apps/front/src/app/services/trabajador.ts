@@ -26,7 +26,9 @@ export const getTrabajadores = async (): Promise<Trabajador[]> => {
 
 export const deleteTrabajador = async (id: number): Promise<boolean> => {
   try {
-    await servicesInstance.delete(`/trabajador/${id}`);
+    await servicesInstance.delete('/trabajador', {
+      data: { id_trabajador: id },
+    });
     return true;
   } catch (error: unknown) {
     console.error(error);
@@ -36,12 +38,11 @@ export const deleteTrabajador = async (id: number): Promise<boolean> => {
 };
 
 export const updateTrabajador = async (
-  id: number,
   data: UpdateTrabajadorParams
 ): Promise<Trabajador> => {
   try {
     const response = await servicesInstance.put<UpdateTrabajadorResponse>(
-      `/trabajador/${id}`,
+      '/trabajador',
       data
     );
     return response.data.trabajador;
