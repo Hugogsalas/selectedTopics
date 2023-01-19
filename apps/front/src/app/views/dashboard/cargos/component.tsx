@@ -55,7 +55,7 @@ const Cargos = () => {
   return (
     <div className="roles-container">
       <div className="header">
-        <div className="title">Pagos</div>
+        <div className="title">Cargos</div>
       </div>
       <div className="table">
         <div className="row">
