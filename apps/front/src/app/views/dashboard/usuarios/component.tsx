@@ -69,6 +69,7 @@ const Usuarios = () => {
           <div className="column">Direccion</div>
           <div className="column">RFC</div>
           <div className="column">Rol</div>
+          <div className="column">Acciones</div>
         </div>
         {users.map((user) => (
           <div key={`rol-row-${user.id_usuario}`} className="row">

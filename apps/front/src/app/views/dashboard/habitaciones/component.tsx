@@ -62,6 +62,7 @@ const Habitaciones = () => {
           <div className="column">Numero</div>
           <div className="column">Tipo de Habitacion</div>
           <div className="column">Status</div>
+          <div className="column">Acciones</div>
         </div>
         {rooms.map((room) => (
           <div key={`rol-row-${room.id_habitacion}`} className="row">

@@ -60,6 +60,7 @@ const Trabajadores = () => {
           <div className="column">ID</div>
           <div className="column">ID Usuario</div>
           <div className="column">Salario</div>
+          <div className="column">Acciones</div>
         </div>
         {workers.map((worker) => (
           <div key={`rol-row-${worker.id_trabajador}`} className="row">

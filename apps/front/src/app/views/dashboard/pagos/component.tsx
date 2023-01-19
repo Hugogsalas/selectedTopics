@@ -62,6 +62,7 @@ const Pagos = () => {
           <div className="column">ID</div>
           <div className="column">Tipo pago</div>
           <div className="column">Fecha</div>
+          <div className="column">Acciones</div>
         </div>
         {payments.map((payment) => (
           <div key={`rol-row-${payment.id_pago}`} className="row">

@@ -65,6 +65,7 @@ const Reservaciones = () => {
           <div className="column">Habitacion</div>
           <div className="column">Fecha Inicio</div>
           <div className="column">Fecha Fin</div>
+          <div className="column">Acciones</div>
         </div>
         {reversals.map((room) => (
           <div key={`rol-row-${room.id_reservacion}`} className="row">
