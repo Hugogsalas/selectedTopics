@@ -30,15 +30,15 @@ const Trabajadores = () => {
     // await refreshWorkers();
   };
 
-  const deleteOneUser = async (id: number) => {
-    const deletedUser = await deleteTrabajador(id);
+  const deleteOneWorker = async (id: number) => {
+    const deletedWorker = await deleteTrabajador(id);
 
-    if (!deletedUser) return;
+    if (!deletedWorker) return;
 
     await refreshWorkers();
   };
 
-  const updateOneUser = async (id: number) => {
+  const updateOneWorker = async (id: number) => {
     // if (!description) return;
 
     // const updatedRole = await updateRol({
@@ -69,13 +69,13 @@ const Trabajadores = () => {
             <div className="column">
               <button
                 className="button-delete"
-                onClick={() => deleteOneUser(worker.id_trabajador)}
+                onClick={() => deleteOneWorker(worker.id_trabajador)}
               >
                 Eliminar
               </button>
               <button
                 className="button-update"
-                onClick={() => updateOneUser(worker.id_trabajador)}
+                onClick={() => updateOneWorker(worker.id_trabajador)}
               >
                 Actualizar
               </button>
