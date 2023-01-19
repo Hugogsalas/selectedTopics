@@ -54,7 +54,7 @@ export const updateUsuario = async (
   data: UpdateUsuarioParams
 ): Promise<boolean> => {
   try {
-    const response = await servicesInstance.put<UpdateUsuarioResponse>(
+    await servicesInstance.put<UpdateUsuarioResponse>(
       `/usuario?id_usuario=${data.id_usuario}`,
       data
     );
@@ -66,16 +66,13 @@ export const updateUsuario = async (
   }
 };
 
-export const addUsuario = async (data: AddUsuarioParams): Promise<Usuario> => {
+export const addUsuario = async (data: AddUsuarioParams): Promise<boolean> => {
   try {
-    const response = await servicesInstance.post<AddUsuarioResponse>(
-      '/usuario',
-      data
-    );
-    return response.data.usuario;
+    await servicesInstance.post<AddUsuarioResponse>('/usuario', data);
+    return true;
   } catch (error: unknown) {
     console.error(error);
-    if (!(error as AxiosError).isAxiosError) return {} as Usuario;
-    return {} as Usuario;
+    if (!(error as AxiosError).isAxiosError) return false;
+    return false;
   }
 };
