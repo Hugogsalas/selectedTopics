@@ -3,7 +3,7 @@ export interface Cargo {
   id_reservacion: number;
   descripcion: string;
   monto: number;
-  fecha: Date;
+  fecha: number;
   id_pago: number | null;
 }
 
