@@ -26,7 +26,9 @@ export const getHabitaciones = async (): Promise<Habitacion[]> => {
 
 export const deleteHabitacion = async (id: number): Promise<boolean> => {
   try {
-    await servicesInstance.delete(`/habitacion/${id}`);
+    await servicesInstance.delete('/habitacion', {
+      data: { id_habitacion: id },
+    });
     return true;
   } catch (error: unknown) {
     console.error(error);
@@ -36,12 +38,11 @@ export const deleteHabitacion = async (id: number): Promise<boolean> => {
 };
 
 export const updateHabitacion = async (
-  id: number,
   data: UpdateHabitacionParams
 ): Promise<Habitacion> => {
   try {
     const response = await servicesInstance.put<UpdateHabitacionResponse>(
-      `/habitacion/${id}`,
+      '/habitacion',
       data
     );
     return response.data.habitacion;

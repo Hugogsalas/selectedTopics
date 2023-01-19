@@ -15,6 +15,7 @@ export interface DeleteHabitacionParams {
 }
 
 export interface UpdateHabitacionParams {
+  id_habitacion?: number;
   numero?: number;
   id_tipo_habitacion?: number;
   id_status?: number;
