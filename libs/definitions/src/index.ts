@@ -6,4 +6,5 @@ export * from './lib/tipoPago';
 export * from './lib/trabajador';
 export * from './lib/reservacion';
 export * from './lib/pago';
+export * from './lib/cargo';
 export * from './lib/login';
