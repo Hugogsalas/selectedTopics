@@ -15,7 +15,7 @@ export interface Trabajador {
 }
 
 export interface getTrabajadoresResponse {
-  success: true;
+  success: boolean;
   trabajadores: Trabajador[];
 }
 
@@ -39,7 +39,7 @@ export interface UpdateTrabajadorParams {
 }
 
 export interface UpdateTrabajadorResponse {
-  success: true;
+  success: boolean;
   trabajador: Trabajador;
 }
 
@@ -59,6 +59,6 @@ export interface AddTrabajadorParams {
 }
 
 export interface AddTrabajadorResponse {
-  success: true;
+  success: boolean;
   trabajador: Trabajador;
 }
