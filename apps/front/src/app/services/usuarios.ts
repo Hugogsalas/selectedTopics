@@ -4,6 +4,7 @@ import {
   AddUsuarioParams,
   AddUsuarioResponse,
   getUsuariosResponse,
+  UpdateUsuarioParams,
   UpdateUsuarioResponse,
   Usuario,
 } from '@eagles/definitions';
@@ -50,19 +51,6 @@ export const updateUsuario = async (
     return {} as Usuario;
   }
 };
-
-interface UpdateUsuarioParams {
-  nombre_usuario?: string;
-  email?: string;
-  clave?: string;
-  apellido_paterno?: string;
-  apellido_materno?: string;
-  nombre?: string;
-  telefono?: string;
-  direccion?: string;
-  rfc?: string;
-  id_rol?: number;
-}
 
 export const addUsuario = async (data: AddUsuarioParams): Promise<Usuario> => {
   try {
