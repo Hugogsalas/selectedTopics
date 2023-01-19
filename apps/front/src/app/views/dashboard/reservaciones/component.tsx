@@ -1,23 +1,25 @@
+import { Reservacion } from "@eagles/definitions";
 import { useEffect, useState } from "react";
+import { deleteReservacion, getReservaciones } from "../../../services/reservacion";
 import { getDate } from "../../../utils/dateUtils";
 
 const Reservaciones = () => {
-  const [reversals, setreReversals] = useState<Reservacion[]>([]);
+  const [reversals, setReversals] = useState<Reservacion[]>([]);
 
   useEffect(() => {
     const fetchReversals = async () => {
-      const fetchedReversals = await getReservacion();
+      const fetchedReversals = await getReservaciones();
 
-      setreReversals(fetchedReversals);
+      setReversals(fetchedReversals);
     };
 
     fetchReversals();
   }, []);
 
   const refreshReversal = async () => {
-    const updatedReversals = await getReservacion();
+    const updatedReversals = await getReservaciones();
 
-    setreReversals(updatedReversals);
+    setReversals(updatedReversals);
   };
 
   const addNewReversal = async () => {

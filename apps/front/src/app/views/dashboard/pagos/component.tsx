@@ -1,4 +1,6 @@
+import { Pago } from "@eagles/definitions";
 import { useEffect, useState } from "react";
+import { deletePago, getPagos } from "../../../services/pago";
 import { getDate } from "../../../utils/dateUtils";
 
 const Pagos = () => {
@@ -6,7 +8,7 @@ const Pagos = () => {
 
   useEffect(() => {
     const fetchPayments = async () => {
-      const fetchedPayments = await getPago();
+      const fetchedPayments = await getPagos();
 
       setPayments(fetchedPayments);
     };
@@ -15,7 +17,7 @@ const Pagos = () => {
   }, []);
 
   const refreshPayments = async () => {
-    const updatedPayments = await getPago();
+    const updatedPayments = await getPagos();
 
     setPayments(updatedPayments);
   };
