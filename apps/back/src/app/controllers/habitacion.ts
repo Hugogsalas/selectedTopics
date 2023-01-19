@@ -94,7 +94,7 @@ export const getAll = async (req: Request, res: Response) => {
 
     res.send({
       success: true,
-      roles: habitaciones,
+      habitaciones: habitaciones,
     });
   } catch (err) {
     console.error('Error al obtener las habitaciones:', err);
