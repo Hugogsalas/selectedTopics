@@ -8,3 +8,4 @@ export * from './lib/reservacion';
 export * from './lib/pago';
 export * from './lib/cargo';
 export * from './lib/login';
+export * from './lib/user';
