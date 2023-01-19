@@ -8,6 +8,11 @@ export interface getRolesResponse {
   roles: rol[];
 }
 
+export interface getRoleResponse {
+  success: boolean;
+  rol: rol;
+}
+
 export interface deleteRolResponse {
   success: boolean;
   messaege: string;

@@ -81,11 +81,11 @@ export const getById = async (req: Request, res: Response) => {
 
     const result = await request.query(query);
 
-    const role = result.recordset[0];
+    const rol = result.recordset[0];
 
     conn.close();
 
-    if (!role)
+    if (!rol)
       res.status(400).send({
         success: false,
         message: 'Error, rol no encontrado',
@@ -93,7 +93,7 @@ export const getById = async (req: Request, res: Response) => {
     else
       res.send({
         success: true,
-        role: role,
+        rol: rol,
       });
   } catch (err) {
     console.error('Error al consultar el rol:', err);

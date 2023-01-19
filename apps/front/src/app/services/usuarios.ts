@@ -3,12 +3,27 @@ import { servicesInstance } from '../utils/axios';
 import {
   AddUsuarioParams,
   AddUsuarioResponse,
+  getUsuarioResponse,
   getUsuariosResponse,
   UpdateUsuarioParams,
   UpdateUsuarioResponse,
   Usuario,
 } from '@eagles/definitions';
 
+export const getUsuario = async (id: string): Promise<Usuario | undefined> => {
+  try {
+    const response = await servicesInstance.get<getUsuarioResponse>(
+      `/usuario?id_usuario=${id}`
+    );
+
+    return response.data.usuario;
+  } catch (error: unknown) {
+    console.error(error);
+    if (!(error as AxiosError).isAxiosError) return undefined;
+
+    return undefined;
+  }
+};
 export const getUsuarios = async (): Promise<Usuario[]> => {
   try {
     const response = await servicesInstance.get<getUsuariosResponse>(
@@ -36,19 +51,18 @@ export const deleteUsuario = async (id: number): Promise<boolean> => {
 };
 
 export const updateUsuario = async (
-  id: number,
   data: UpdateUsuarioParams
-): Promise<Usuario> => {
+): Promise<boolean> => {
   try {
     const response = await servicesInstance.put<UpdateUsuarioResponse>(
-      `/usuario/${id}`,
+      `/usuario?id_usuario=${data.id_usuario}`,
       data
     );
-    return response.data.usuario;
+    return true;
   } catch (error: unknown) {
     console.error(error);
-    if (!(error as AxiosError).isAxiosError) return {} as Usuario;
-    return {} as Usuario;
+    if (!(error as AxiosError).isAxiosError) return false;
+    return false;
   }
 };
 

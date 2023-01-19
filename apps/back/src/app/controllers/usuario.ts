@@ -87,7 +87,7 @@ export const getAll = async (req: Request, res: Response) => {
 
 export const getById = async (req: Request, res: Response) => {
   try {
-    const { id_usuario } = req.params;
+    const { id_usuario } = req.query;
 
     const conn = await getDbConnection();
 

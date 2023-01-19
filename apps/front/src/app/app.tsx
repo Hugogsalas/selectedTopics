@@ -3,7 +3,9 @@ import { Route, Routes } from 'react-router-dom';
 import Login from './views/login/component';
 import Dashboard from './views/dashboard/component';
 import Roles from './views/dashboard/roles/component';
+import RolesForm from './views/dashboard/roles/crud/form';
 import Usuarios from './views/dashboard/usuarios/component';
+import UsuariosForm from './views/dashboard/usuarios/crud/form';
 import Trabajadores from './views/dashboard/trabajadores/component';
 import Habitaciones from './views/dashboard/habitaciones/component';
 import Reservaciones from './views/dashboard/reservaciones/component';
@@ -30,7 +32,9 @@ export const App = () => {
           }
         >
           <Route path="roles" element={<Roles />} />
+          <Route path="roles/form/:roleId" element={<RolesForm />} />
           <Route path="usuarios" element={<Usuarios />} />
+          <Route path="usuarios/form/:userId" element={<UsuariosForm />} />
           <Route path="trabajadores" element={<Trabajadores />} />
           <Route path="habitaciones" element={<Habitaciones />} />
           <Route path="reservaciones" element={<Reservaciones />} />

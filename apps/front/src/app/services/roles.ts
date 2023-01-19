@@ -4,9 +4,25 @@ import {
   addRolResponse,
   deleteRolResponse,
   getRolesResponse,
+  getRoleResponse,
   rol,
   updateRolResponse,
 } from '@eagles/definitions';
+
+export const getRole = async (id: string): Promise<rol | undefined> => {
+  try {
+    const response = await servicesInstance.get<getRoleResponse>(
+      `/roles?id_rol=${id}`
+    );
+
+    return response.data.rol;
+  } catch (error: unknown) {
+    console.error(error);
+    if (!(error as AxiosError).isAxiosError) return;
+
+    return;
+  }
+};
 
 export const getRoles = async (): Promise<rol[]> => {
   try {

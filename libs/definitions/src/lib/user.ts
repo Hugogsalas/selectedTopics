@@ -16,6 +16,10 @@ export interface getUsuariosResponse {
   success: true;
   usuarios: Usuario[];
 }
+export interface getUsuarioResponse {
+  success: true;
+  usuario: Usuario;
+}
 
 export interface AddUsuarioParams {
   nombre_usuario: string;
@@ -35,6 +39,7 @@ export interface AddUsuarioResponse {
   usuario: Usuario;
 }
 export interface UpdateUsuarioParams {
+  id_usuario: number;
   nombre_usuario?: string;
   email?: string;
   clave?: string;

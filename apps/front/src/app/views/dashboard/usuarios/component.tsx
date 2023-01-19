@@ -1,6 +1,7 @@
-import { Usuario } from "@eagles/definitions";
-import { useEffect, useState } from "react";
-import { deleteUsuario, getUsuarios } from "../../../services/usuarios";
+import { Usuario } from '@eagles/definitions';
+import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { deleteUsuario, getUsuarios } from '../../../services/usuarios';
 
 const Usuarios = () => {
   const [users, setUsers] = useState<Usuario[]>([]);
@@ -21,16 +22,6 @@ const Usuarios = () => {
     setUsers(updatedUsers);
   };
 
-  const addNewUser = async () => {
-    // if (!description) return;
-
-    // const addedRole = await addRole({ descripcion: description });
-
-    // if (!addedRole) return;
-
-    // await refreshUsers();
-  };
-
   const deleteOneUser = async (id: number) => {
     const deletedUser = await deleteUsuario(id);
 
@@ -39,23 +30,15 @@ const Usuarios = () => {
     await refreshUsers();
   };
 
-  const updateOneUser = async (id: number) => {
-    // if (!description) return;
-
-    // const updatedRole = await updateRol({
-    //   id_rol: id,
-    //   descripcion: description,
-    // });
-
-    // if (!updatedRole) return;
-
-    // await refreshUsers();
-  };
-
   return (
     <div className="roles-container">
       <div className="header">
         <div className="title">Usuarios</div>
+        <div>
+          <Link to="/dashboard/usuarios/form/add">
+            <button className="button-add">Añadir</button>
+          </Link>
+        </div>
       </div>
       <div className="table">
         <div className="row">
@@ -90,12 +73,9 @@ const Usuarios = () => {
               >
                 Eliminar
               </button>
-              <button
-                className="button-update"
-                onClick={() => updateOneUser(user.id_usuario)}
-              >
-                Actualizar
-              </button>
+              <Link to={`/dashboard/usuarios/form/${user.id_usuario}`}>
+                <button className="button-update">Actualizar</button>
+              </Link>
             </div>
           </div>
         ))}
