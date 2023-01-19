@@ -3,3 +3,4 @@ export * from './lib/roles';
 export * from './lib/tipoHabitacion';
 export * from './lib/tipoPago';
 export * from './lib/login';
+export * from './lib/user';
