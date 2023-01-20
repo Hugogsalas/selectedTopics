@@ -1,6 +1,10 @@
-import { Trabajador } from "@eagles/definitions";
-import { useEffect, useState } from "react";
-import { deleteTrabajador, getTrabajadores } from "../../../services/trabajador";
+import { Trabajador } from '@eagles/definitions';
+import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import {
+  deleteTrabajador,
+  getTrabajadores,
+} from '../../../services/trabajador';
 
 const Trabajadores = () => {
   const [workers, setWorkers] = useState<Trabajador[]>([]);
@@ -20,16 +24,6 @@ const Trabajadores = () => {
     setWorkers(updatedWorkers);
   };
 
-  const addNewUser = async () => {
-    // if (!description) return;
-
-    // const addedRole = await addRole({ descripcion: description });
-
-    // if (!addedRole) return;
-
-    // await refreshWorkers();
-  };
-
   const deleteOneWorker = async (id: number) => {
     const deletedWorker = await deleteTrabajador(id);
 
@@ -38,22 +32,15 @@ const Trabajadores = () => {
     await refreshWorkers();
   };
 
-  const updateOneWorker = async (id: number) => {
-    // if (!description) return;
-
-    // const updatedRole = await updateRol({
-    //   id_rol: id,
-    //   descripcion: description,
-    // });
-
-    // if (!updatedRole) return;
-
-    // await refreshWorkers();
-  };
   return (
     <div className="roles-container">
       <div className="header">
         <div className="title">Trabajadores</div>
+        <div>
+          <Link to="/dashboard/trabajadores/form/add">
+            <button className="button-add">Añadir</button>
+          </Link>
+        </div>
       </div>
       <div className="table">
         <div className="row">
@@ -74,12 +61,9 @@ const Trabajadores = () => {
               >
                 Eliminar
               </button>
-              <button
-                className="button-update"
-                onClick={() => updateOneWorker(worker.id_trabajador)}
-              >
-                Actualizar
-              </button>
+              <Link to={`/dashboard/trabajadores/form/${worker.id_trabajador}`}>
+                <button className="button-update">Actualizar</button>
+              </Link>
             </div>
           </div>
         ))}

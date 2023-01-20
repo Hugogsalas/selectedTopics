@@ -137,6 +137,14 @@ const Form = () => {
           value={clave}
           onChange={(event) => setClave(event.target.value)}
         />
+        <label>Nombre: </label>
+        <input
+          className="description-input"
+          type="text"
+          id="user-name"
+          value={nombre}
+          onChange={(event) => setNombre(event.target.value)}
+        />
         <label>Apellido Paterno: </label>
         <input
           className="description-input"

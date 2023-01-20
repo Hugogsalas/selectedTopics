@@ -7,7 +7,25 @@ import {
   UpdateTrabajadorResponse,
   AddTrabajadorParams,
   AddTrabajadorResponse,
+  getTrabajadorResponse,
 } from '@eagles/definitions';
+
+export const getTrabajador = async (
+  id: string
+): Promise<Trabajador | undefined> => {
+  try {
+    const response = await servicesInstance.get<getTrabajadorResponse>(
+      `/trabajador?id_trabajador=${id}`
+    );
+
+    return response.data.trabajador;
+  } catch (error: unknown) {
+    console.error(error);
+    if (!(error as AxiosError).isAxiosError) return undefined;
+
+    return undefined;
+  }
+};
 
 export const getTrabajadores = async (): Promise<Trabajador[]> => {
   try {
@@ -55,16 +73,16 @@ export const updateTrabajador = async (
 
 export const addTrabajador = async (
   data: AddTrabajadorParams
-): Promise<Trabajador> => {
+): Promise<boolean> => {
   try {
     const response = await servicesInstance.post<AddTrabajadorResponse>(
       '/trabajador',
       data
     );
-    return response.data.trabajador;
+    return response.status === 200;
   } catch (error: unknown) {
     console.error(error);
-    if (!(error as AxiosError).isAxiosError) return {} as Trabajador;
-    return {} as Trabajador;
+    if (!(error as AxiosError).isAxiosError) return false;
+    return false;
   }
 };

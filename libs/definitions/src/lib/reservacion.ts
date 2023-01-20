@@ -2,8 +2,9 @@ export interface Reservacion {
   id_reservacion: number;
   id_cliente: number;
   id_habitacion: number;
-  fecha_inicio: number;
-  fecha_fin: number;
+  id_trabajador: number;
+  fecha_inicio: string;
+  fecha_fin: string;
 }
 
 export interface GetReservacionesResponse {
@@ -19,8 +20,9 @@ export interface UpdateReservacionParams {
   id_reservacion: number;
   id_cliente?: number;
   id_habitacion?: number;
-  fechaInicio?: number;
-  fechaFin?: number;
+  id_trabajador?: number;
+  fecha_inicio?: string;
+  fecha_fin?: string;
 }
 
 export interface UpdateReservacionResponse {
@@ -31,8 +33,9 @@ export interface UpdateReservacionResponse {
 export interface AddReservacionParams {
   id_cliente: number;
   id_habitacion: number;
-  fecha_inicio: number;
-  fecha_fin: number;
+  id_trabajador: number;
+  fecha_inicio: string;
+  fecha_fin: string;
 }
 
 export interface AddReservacionResponse {

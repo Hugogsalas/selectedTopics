@@ -1,19 +1,13 @@
 export interface Trabajador {
   id_trabajador: number;
-  salario: number;
   id_usuario: number;
-  nombre_usuario: string;
-  email: string;
-  clave: string;
-  apellido_paterno: string;
-  apellido_materno: string;
-  nombre: string;
-  telefono: string;
-  direccion: string;
-  rfc: string;
-  id_rol: number;
+  salario: number;
 }
 
+export interface getTrabajadorResponse {
+  success: boolean;
+  trabajador: Trabajador;
+}
 export interface getTrabajadoresResponse {
   success: boolean;
   trabajadores: Trabajador[];
@@ -25,18 +19,8 @@ export interface DeleteTrabajadorParams {
 
 export interface UpdateTrabajadorParams {
   id_trabajador: number;
-  salario?: number;
   id_usuario?: number;
-  nombre_usuario?: string;
-  email?: string;
-  clave?: string;
-  apellido_paterno?: string;
-  apellido_materno?: string;
-  nombre?: string;
-  telefono?: string;
-  direccion?: string;
-  rfc?: string;
-  id_rol?: number;
+  salario?: number;
 }
 
 export interface UpdateTrabajadorResponse {
@@ -45,18 +29,8 @@ export interface UpdateTrabajadorResponse {
 }
 
 export interface AddTrabajadorParams {
-  salario: number;
   id_usuario: number;
-  nombre_usuario: string;
-  email: string;
-  clave: string;
-  apellido_paterno: string;
-  apellido_materno: string;
-  nombre: string;
-  telefono: string;
-  direccion: string;
-  rfc: string;
-  id_rol: number;
+  salario: number;
 }
 
 export interface AddTrabajadorResponse {

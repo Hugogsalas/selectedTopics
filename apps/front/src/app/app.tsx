@@ -7,6 +7,7 @@ import RolesForm from './views/dashboard/roles/crud/form';
 import Usuarios from './views/dashboard/usuarios/component';
 import UsuariosForm from './views/dashboard/usuarios/crud/form';
 import Trabajadores from './views/dashboard/trabajadores/component';
+import TrabajadoresForm from './views/dashboard/trabajadores/crud/form';
 import Habitaciones from './views/dashboard/habitaciones/component';
 import Reservaciones from './views/dashboard/reservaciones/component';
 import Pagos from './views/dashboard/pagos/component';
@@ -36,6 +37,10 @@ export const App = () => {
           <Route path="usuarios" element={<Usuarios />} />
           <Route path="usuarios/form/:userId" element={<UsuariosForm />} />
           <Route path="trabajadores" element={<Trabajadores />} />
+          <Route
+            path="trabajadores/form/:trabajadorId"
+            element={<TrabajadoresForm />}
+          />
           <Route path="habitaciones" element={<Habitaciones />} />
           <Route path="reservaciones" element={<Reservaciones />} />
           <Route path="pagos" element={<Pagos />} />

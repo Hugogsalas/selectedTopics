@@ -5,10 +5,6 @@ import './styles.scss';
 
 const TiposHabitaciones = () => {
   const [tipos, setTipos] = useState<tipoHabitacion[]>([]);
-  const [description, setDescription] = useState<string>('');
-  const [price, setPrice] = useState<number>(0);
-  const [capacity, setCapacity] = useState<number>(0);
-
   useEffect(() => {
     const fetchTiposHabitaciones = async () => {
       const fetchedTiposHabitaciones = await getTiposHabitaciones();
@@ -24,47 +20,6 @@ const TiposHabitaciones = () => {
       <div className="header">
         <div className="title">Tipos de Habitaciones</div>
         <button className="button-add">Añadir</button>
-      </div>
-      <div className="form-tipo">
-        <div className="input-descripcion">
-          <label className="tipo-habitacion-label" htmlFor="password">
-            Descripcion:
-          </label>
-          <br />
-          <input
-            className="tipo-habitaciones-input"
-            type="text"
-            id="description"
-            value={description}
-            onChange={(event) => setDescription(event.target.value)}
-          />
-        </div>
-        <div className="input-precio">
-          <label className="tipo-habitacion-label" htmlFor="password">
-            Precio:
-          </label>
-          <br />
-          <input
-            className="tipo-habitaciones-input"
-            type="number"
-            id="price"
-            value={price}
-            onChange={(event) => setPrice(parseInt(event.target.value))}
-          />
-        </div>
-        <div className="input-capacidad">
-          <label className="tipo-habitacion-label" htmlFor="password">
-            Capacidad:
-          </label>
-          <br />
-          <input
-            className="tipo-habitaciones-input"
-            type="number"
-            id="capacity"
-            value={capacity}
-            onChange={(event) => setCapacity(parseInt(event.target.value))}
-          />
-        </div>
       </div>
       <div className="table">
         <div className="row">
