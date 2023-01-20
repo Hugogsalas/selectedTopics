@@ -10,6 +10,9 @@ export interface Cargo {
 export interface GetCargosResponse {
   cargos: Cargo[];
 }
+export interface GetCargoResponse {
+  cargos: Cargo;
+}
 
 export interface UpdateCargoParams {
   id_cargo: number;

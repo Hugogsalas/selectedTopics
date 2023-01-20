@@ -1,9 +1,11 @@
 import { Cargo } from "@eagles/definitions";
 import { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { deleteCargo, getCargos } from "../../../services/cargo";
 import { getDate } from "../../../utils/dateUtils";
 
 const Cargos = () => {
+  const navigate = useNavigate();
   const [charges, setCharges] = useState<Cargo[]>([]);
 
   useEffect(() => {
@@ -22,16 +24,6 @@ const Cargos = () => {
     setCharges(updatedCharges);
   };
 
-  const addNewCharge = async () => {
-    // if (!description) return;
-
-    // const addedRole = await addRole({ descripcion: description });
-
-    // if (!addedRole) return;
-
-    // await refreshCharges();
-  };
-
   const deleteOneCharge = async (id: number) => {
     const deletedCharge = await deleteCargo(id);
 
@@ -40,22 +32,15 @@ const Cargos = () => {
     await refreshCharges();
   };
 
-  const updateOneCharge = async (id: number) => {
-    // if (!description) return;
-
-    // const updatedRole = await updateRol({
-    //   id_rol: id,
-    //   descripcion: description,
-    // });
-
-    // if (!updatedRole) return;
-
-    // await refreshCharges();
-  };
   return (
     <div className="roles-container">
       <div className="header">
         <div className="title">Cargos</div>
+        <div>
+          <Link to="/dashboard/cargos/form/add">
+            <button className="button-add">Añadir</button>
+          </Link>
+        </div>
       </div>
       <div className="table">
         <div className="row">
@@ -82,12 +67,9 @@ const Cargos = () => {
               >
                 Eliminar
               </button>
-              <button
-                className="button-update"
-                onClick={() => updateOneCharge(charge.id_cargo)}
-              >
-                Actualizar
-              </button>
+              <Link to={`/dashboard/usuarios/form/${charge.id_cargo}`}>
+                <button className="button-update">Actualizar</button>
+              </Link>
             </div>
           </div>
         ))}

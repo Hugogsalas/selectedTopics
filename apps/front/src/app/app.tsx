@@ -13,6 +13,7 @@ import Reservaciones from './views/dashboard/reservaciones/component';
 import ReservacionesForm from './views/dashboard/reservaciones/crud/form';
 import Pagos from './views/dashboard/pagos/component';
 import Cargos from './views/dashboard/cargos/component';
+import CargosForm from './views/dashboard/cargos/crud/form'
 import TiposHabitaciones from './views/dashboard/tiposHabitaciones/component';
 import EstatusHabitaciones from './views/dashboard/estatusHabitaciones/component';
 import TiposPagos from './views/dashboard/tiposPagos/component';
@@ -50,6 +51,7 @@ export const App = () => {
           />
           <Route path="pagos" element={<Pagos />} />
           <Route path="cargos" element={<Cargos />} />
+          <Route path="cargos/form/:cargoId" element={<CargosForm />} />
           <Route path="tipos-de-habitaciones" element={<TiposHabitaciones />} />
           <Route
             path="estatus-de-habitaciones"

@@ -7,7 +7,23 @@ import {
   Cargo,
   UpdateCargoParams,
   UpdateCargoResponse,
+  GetCargoResponse,
 } from '@eagles/definitions';
+
+export const getCargo = async (id: string): Promise<Cargo | undefined> => {
+  try {
+    const response = await servicesInstance.get<GetCargoResponse>(
+      `/cargo?id_cargo=${id}`
+    );
+
+    return response.data.cargos;
+  } catch (error: unknown) {
+    console.error(error);
+    if (!(error as AxiosError).isAxiosError) return undefined;
+
+    return undefined;
+  }
+};
 
 export const getCargos = async (): Promise<Cargo[]> => {
   try {
