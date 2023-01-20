@@ -10,6 +10,7 @@ import Trabajadores from './views/dashboard/trabajadores/component';
 import TrabajadoresForm from './views/dashboard/trabajadores/crud/form';
 import Habitaciones from './views/dashboard/habitaciones/component';
 import Reservaciones from './views/dashboard/reservaciones/component';
+import ReservacionesForm from './views/dashboard/reservaciones/crud/form';
 import Pagos from './views/dashboard/pagos/component';
 import Cargos from './views/dashboard/cargos/component';
 import TiposHabitaciones from './views/dashboard/tiposHabitaciones/component';
@@ -43,6 +44,10 @@ export const App = () => {
           />
           <Route path="habitaciones" element={<Habitaciones />} />
           <Route path="reservaciones" element={<Reservaciones />} />
+          <Route
+            path="reservaciones/form/:reservacionId"
+            element={<ReservacionesForm />}
+          />
           <Route path="pagos" element={<Pagos />} />
           <Route path="cargos" element={<Cargos />} />
           <Route path="tipos-de-habitaciones" element={<TiposHabitaciones />} />

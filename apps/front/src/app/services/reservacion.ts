@@ -3,11 +3,27 @@ import { servicesInstance } from '../utils/axios';
 import {
   AddReservacionParams,
   AddReservacionResponse,
+  GetReservacionResponse,
   GetReservacionesResponse,
   Reservacion,
   UpdateReservacionParams,
   UpdateReservacionResponse,
 } from '@eagles/definitions';
+
+export const getReservacion = async (
+  id: string
+): Promise<Reservacion | undefined> => {
+  try {
+    const response = await servicesInstance.get<GetReservacionResponse>(
+      `/reservacion?id_reservacion=${id}`
+    );
+    return response.data.reservacion;
+  } catch (error: unknown) {
+    console.error(error);
+    if (!(error as AxiosError).isAxiosError) return undefined;
+    return undefined;
+  }
+};
 
 export const getReservaciones = async (): Promise<Reservacion[]> => {
   try {
@@ -53,16 +69,16 @@ export const updateReservacion = async (
 
 export const addReservacion = async (
   data: AddReservacionParams
-): Promise<Reservacion> => {
+): Promise<boolean> => {
   try {
     const response = await servicesInstance.post<AddReservacionResponse>(
       '/reservacion',
       data
     );
-    return response.data.reservacion;
+    return response.status === 200;
   } catch (error: unknown) {
     console.error(error);
-    if (!(error as AxiosError).isAxiosError) return {} as Reservacion;
-    return {} as Reservacion;
+    if (!(error as AxiosError).isAxiosError) return false;
+    return false;
   }
 };

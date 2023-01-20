@@ -7,6 +7,10 @@ export interface Reservacion {
   fecha_fin: string;
 }
 
+export interface GetReservacionResponse {
+  success: boolean;
+  reservacion: Reservacion;
+}
 export interface GetReservacionesResponse {
   success: boolean;
   reservaciones: Reservacion[];

@@ -4,17 +4,24 @@ import { getDbConnection } from '../helpers/db';
 
 export const create = async (req: Request, res: Response) => {
   try {
-    const { id_cliente, id_habitacion, fecha_inicio, fecha_fin } = req.body;
+    const {
+      id_cliente,
+      id_habitacion,
+      id_trabajador,
+      fecha_inicio,
+      fecha_fin,
+    } = req.body;
     const conn = await getDbConnection();
 
     const query = `
-  INSERT INTO reservacion (id_cliente, id_habitacion, fecha_inicio, fecha_fin)
-  VALUES (@id_cliente, @id_habitacion, @fecha_inicio, @fecha_fin)
+  INSERT INTO reservacion (id_cliente, id_habitacion, id_trabajador, fecha_inicio, fecha_fin)
+  VALUES (@id_cliente, @id_habitacion, @id_trabajador, @fecha_inicio, @fecha_fin)
 `;
 
     const request = new SQLRequest(conn);
     request.input('id_cliente', Int, id_cliente);
     request.input('id_habitacion', Int, id_habitacion);
+    request.input('id_trabajador', Int, id_trabajador);
     request.input('fecha_inicio', DateTime, fecha_inicio);
     request.input('fecha_fin', DateTime, fecha_fin);
 
@@ -44,7 +51,7 @@ export const get = (req: Request, res: Response) => {
 
 export const getById = async (req: Request, res: Response) => {
   try {
-    const { id_reservacion } = req.body;
+    const { id_reservacion } = req.query;
     const conn = await getDbConnection();
 
     const query = `SELECT * FROM reservacion WHERE id_reservacion = @id`;
